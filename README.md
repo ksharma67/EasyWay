@@ -1,7 +1,5 @@
 # EasyWay
 
-## Project Description
-
 [View Project Description as PDF](https://github.com/ksharma67/EasyWay/blob/main/ProjectDocs/Artifacts/Product%20Description.pdf) | <a id="raw-url" href="https://github.com/ksharma67/EasyWay/blob/main/ProjectDocs/Artifacts/Product%20Description.docx">Download Project Description as Word Document</a>
 
 ### Project Overview
