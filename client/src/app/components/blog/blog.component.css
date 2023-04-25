@@ -1,25 +1,154 @@
-#box1 {
-  margin-top: 10px;
-  height: 300px;
-
-  width: 450px;
-  border: 2px solid black;
-}
-#box2 {
-  margin-top: 30px;
-  height: 300px;
-
-  width: 450px;
-  border: 2px solid black;
-}
-img {
-  max-width: 100%;
-  max-height: 100%;
+/* Blog Section */
+article {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
-h1 {
-  text-align: left;
+article h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
-p {
-  text-align: left;
+
+article ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+article li {
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border: 1px solid #ccc;
+}
+
+article li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+article li p {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+.blog-section {
+  background-color: #f8f9fa;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.blog-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.blog-header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #343a40;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.blog-header p {
+  font-size: 16px;
+  color: #6c757d;
+  margin-bottom: 0;
+}
+
+.blog-post {
+  margin-bottom: 60px;
+  padding: 40px;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  position: relative;
+}
+
+.blog-post:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px);
+}
+
+.blog-post h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #343a40;
+  margin-bottom: 16px;
+}
+
+.blog-post p {
+  font-size: 16px;
+  color: #6c757d;
+  margin-bottom: 16px;
+}
+
+.blog-post a {
+  display: inline-block;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #343a40;
+  border: 2px solid #343a40;
+  padding: 8px 24px;
+  border-radius: 30px;
+  transition: all 0.3s ease-out;
+}
+
+.blog-post a:hover {
+  background-color: #343a40;
+  color: #fff;
+}
+
+/* Animation */
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadein 1s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.read-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.read-more .btn {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease-out;
+}
+
+.read-more .btn:hover {
+  background-color: #0062cc;
+  border-color: #005cbf;
+}
+
+.read-more .btn:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+  outline: 0;
+}
+
+.read-more .btn:active {
+  background-color: #0062cc;
+  border-color: #005cbf;
+  transform: translateY(0.1rem);
+  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.2);
 }

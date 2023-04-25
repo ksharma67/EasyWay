@@ -1,55 +1,71 @@
+<!-- Header section -->
 <header class="bg-dark py-5 service-header">
     <div class="container px-lg-5 my-5">
         <div class="text-center text-white">
             <h1 class="display-4 fw-bolder">Blog</h1>
-          <div id="box1">
-            <span class="image featured"><img src="../../../assets/images/house_cleaning.jpg.jpg" alt=""></span>
-      </div>
-      <h1>Home Cleaning Hacks!</h1>
-      <p>
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout. The point of
-        using Lorem Ipsum is that it has a more-or-less normal distribution of
-        letters, as opposed to using 'Content here, content here', making it
-        look like readable English. Many desktop publishing packages and web
-        page editors now use Lorem Ipsum as their default model text, and a
-        search for 'lorem ipsum' will uncover many web sites still in their
-        infancy. Various versions have evolved over the years, sometimes by
-        accident, sometimes on purpose (injected humour and the like). It is a
-        long established fact that a reader will be distracted by the readable
-        content of a page when looking at its layout. The point of using Lorem
-        Ipsum is that it has a more-or-less normal distribution of letters, as
-        opposed to using 'Content here, content here', making it look like
-        readable English. Many desktop publishing packages and web page editors
-        now use Lorem Ipsum as their default model text, and a search for 'lorem
-        ipsum' will uncover many web sites still in their infancy. Various
-        versions have evolved over the years, sometimes by accident, sometimes
-        on purpose (injected humour and the like).
-      </p>
-      <div id="box2">
-        <span class="image featured"><img src="../../../assets/images/refridgerator .jpg.jpg" alt=""></span>
-      </div>
-      <h1>Refrigerator Cleaning Hacks!</h1>
-      <p>
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout. The point of
-        using Lorem Ipsum is that it has a more-or-less normal distribution of
-        letters, as opposed to using 'Content here, content here', making it
-        look like readable English. Many desktop publishing packages and web
-        page editors now use Lorem Ipsum as their default model text, and a
-        search for 'lorem ipsum' will uncover many web sites still in their
-        infancy. Various versions have evolved over the years, sometimes by
-        accident, sometimes on purpose (injected humour and the like). It is a
-        long established fact that a reader will be distracted by the readable
-        content of a page when looking at its layout. The point of using Lorem
-        Ipsum is that it has a more-or-less normal distribution of letters, as
-        opposed to using 'Content here, content here', making it look like
-        readable English. Many desktop publishing packages and web page editors
-        now use Lorem Ipsum as their default model text, and a search for 'lorem
-        ipsum' will uncover many web sites still in their infancy. Various
-        versions have evolved over the years, sometimes by accident, sometimes
-        on purpose (injected humour and the like).
-      </p>
         </div>
     </div>
 </header>
+<!-- Blog section -->
+<section class="py-5">
+  <article>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <ul class="list-unstyled">
+            <!-- Loop through each post and display its details -->
+            <li class="media mb-4" *ngFor="let post of posts">
+              <span class="image featured"><img class="image-padding" src='{{imageURL + post["image_name"] }}' alt="" width="200"/></span>
+              <div class="media-body">
+                <!-- Link to the post details page -->
+                <a routerLink="/blog/{{ post.id }}">
+                  <h3 class="mb-0">{{ post.title }}</h3>
+                </a>
+                <div class="mb-3">
+                  <!-- Display the post creation date -->
+                  <small class="text-muted">{{ post.created_at | date:'MMM d, y' }}</small>
+                </div>
+                <!-- Display the post content -->
+                <p class="mb-3">{{ post.content }}</p>
+                <div class="read-more">
+                  <!-- Link to the post details page -->
+                  <a class="btn btn-primary" (click)="goToBlogDetails(post.id)">Read More</a>
+                </div>
+                <ul>
+                  <!-- Loop through each comment of the post and display its details -->
+                  <li *ngFor="let comment of comments">
+                    <div>{{ comment.content }}</div>
+                    <div class="mb-3">
+                      <!-- Display the comment creation date -->
+                      <small class="text-muted">{{ comment.created_at | date:'MMM d, y' }}</small>
+                    </div>
+                  </li>
+                  <br>
+                  <!-- Dummy comments for testing -->
+                    <li>
+                      <div>Great article, very informative!</div>
+                      <div class="mb-3">
+                        <small class="text-muted">Apr 26, 2023</small>
+                      </div>
+                    </li>
+                    <li>
+                      <div>I totally agree, on-demand services are the way to go!</div>
+                      <div class="mb-3">
+                        <small class="text-muted">Apr 26, 2023</small>
+                      </div>
+                    </li>
+                    <li>
+                      <div>I had a bad experience with an on-demand cleaning service, they didn't do a good job.</div>
+                      <div class="mb-3">
+                        <small class="text-muted">Apr 27, 2023</small>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
