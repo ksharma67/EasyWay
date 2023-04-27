@@ -17,4 +17,9 @@ export class Comment {
     this.created_at = created_at;
     this.updated_at = updated_at;
   }
+
+  static createDefault(): Comment {
+    return new Comment(0, 0, 0, '', new Date(), new Date());
+  }
+  
 }

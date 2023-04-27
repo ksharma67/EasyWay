@@ -68,3 +68,11 @@ type ServiceResult struct {
 	Id   uint   `gorm:"primary_key" json:"id"`
 	Name string `gorm:"size:50" json:"name"`
 }
+
+type UploadedFile struct {
+  Id          uint   `gorm:"primary_key" json:"id"`
+  ContentType string `gorm:"not null" json:"content_type"`
+  Size        int64  `gorm:"not null" json:"size"`
+  FileName    string `gorm:"not null" json:"file_name"`
+  FilePath    string `gorm:"not null" json:"file_path"`
+}

@@ -1,42 +1,11 @@
-/* Blog Section */
-article {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-}
-
-article h1 {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-article ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-article li {
-  margin-bottom: 2rem;
-  padding: 2rem;
-  border: 1px solid #ccc;
-}
-
-article li a {
-  text-decoration: none;
-  color: #333;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-article li p {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-}
-
 .blog-section {
   background-color: #f8f9fa;
   padding-top: 80px;
   padding-bottom: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .blog-header {
@@ -45,17 +14,19 @@ article li p {
 }
 
 .blog-header h1 {
-  font-size: 42px;
+  font-size: 48px;
   font-weight: 700;
   color: #343a40;
   margin-bottom: 16px;
   text-transform: uppercase;
+  animation: slideInDown 1s ease-out;
 }
 
 .blog-header p {
-  font-size: 16px;
+  font-size: 18px;
   color: #6c757d;
   margin-bottom: 0;
+  animation: fadeIn 1s ease-out;
 }
 
 .blog-post {
@@ -63,8 +34,7 @@ article li p {
   padding: 40px;
   background-color: #fff;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-  transition: box-shadow 0.3s ease-out;
-  transition: all 0.3s ease-out;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
   position: relative;
 }
 
@@ -74,7 +44,7 @@ article li p {
 }
 
 .blog-post h2 {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
   color: #343a40;
   margin-bottom: 16px;
@@ -109,13 +79,9 @@ article li p {
   to   { opacity: 1; }
 }
 
-.fade-in {
-  animation: fadein 1s;
-}
-
-@keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+@keyframes slideInDown {
+from { transform: translateY(-100%); }
+to { transform: translateY(0); }
 }
 
 .read-more {
@@ -134,16 +100,14 @@ article li p {
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   transition: all 0.3s ease-out;
+  text-decoration: none;
 }
 
-.read-more .btn:hover {
+.read-more .btn:hover,
+.read-more .btn:focus {
   background-color: #0062cc;
   border-color: #005cbf;
-}
-
-.read-more .btn:focus {
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
-  outline: 0;
+  outline: none;
 }
 
 .read-more .btn:active {

@@ -53,3 +53,37 @@ func GetAllComments(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(jsonBytes)
 }
+
+// AddComment adds a new comment for a specific blog post.
+func AddComment(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
+	// Parse the request body to get the comment data.
+	comment := model.Comment{}
+	err := json.NewDecoder(r.Body).Decode(&comment)
+	if err != nil {
+		http.Error(w, "Error parsing comment data", http.StatusBadRequest)
+		return
+	}
+
+	// Get the blog ID from the request parameters.
+	blogId, err := strconv.Atoi(r.URL.Query().Get("blog_id"))
+	if err != nil {
+		http.Error(w, "Invalid blog ID", http.StatusBadRequest)
+		return
+	}
+
+	// Add the blog ID to the comment and save it to the database.
+	comment.BlogId = blogId
+	if err := db.Create(&comment).Error; err != nil {
+		http.Error(w, "Error adding comment to database", http.StatusInternalServerError)
+		return
+	}
+
+	// Convert the comment to JSON and write it to the response.
+	jsonBytes, err := json.Marshal(comment)
+	if err != nil {
+		http.Error(w, "Error converting comment to JSON", http.StatusInternalServerError)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(jsonBytes)
+}

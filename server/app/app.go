@@ -9,7 +9,6 @@ import (
 	"github.com/jinzhu/gorm"
 	"github.com/ksharma67/EasyWay/server/app/handler"
 	"github.com/ksharma67/EasyWay/server/config"
-	//"gorm.io/driver/sqlite"
 )
 
 // App has router and db instances
@@ -50,6 +49,10 @@ func (a *App) setRouters() {
 	a.Get("/getAllBlogs", a.GetAllBlogs)
 	a.Get("/getAllComments", a.GetAllComments)
 	a.Get("/searchServiceByName", a.SearchServiceByName)
+	a.Post("/forgotUsername", a.ForgotUsername)
+	a.Post("/forgotPassword", a.ForgotPassword)
+	a.Post("/createUploadedFile", a.CreateUploadedFile)
+	a.Post("/addComment", a.AddComment)
 }
 
 // Wrap the router for GET method
@@ -93,11 +96,19 @@ func (a *App) CancelBooking(w http.ResponseWriter, r *http.Request) {
 
 // Handlers to Create Services
 func (a *App) CreateService(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Called Routes: /cancelBooking Method:POST")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Content-Type", "application/x-www-form-urlencoded")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 	handler.CreateService(a.DB, w, r)
 }
 
 // Handlers to Get Services In City
 func (a *App) GetServicesInCity(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Called Routes: /cancelBooking Method:POST")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Content-Type", "application/x-www-form-urlencoded")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 	handler.GetServicesInCity(a.DB, w, r)
 }
 
@@ -157,23 +168,62 @@ func (a *App) GetUserDetails(w http.ResponseWriter, r *http.Request) {
 
 // Handlers to Get Blogs Data
 func (a *App) GetAllBlogs(w http.ResponseWriter, r *http.Request) {
-    w.Header().Set("Access-Control-Allow-Origin", "*")
-    w.Header().Set("Content-Type", "application/x-www-form-urlencoded")
-    w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
-    handler.GetAllBlogs(a.DB, w, r)
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Content-Type", "application/x-www-form-urlencoded")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+  handler.GetAllBlogs(a.DB, w, r)
 }
 
 // Handlers to Get Comments Data
 func (a *App) GetAllComments(w http.ResponseWriter, r *http.Request) {
-    w.Header().Set("Access-Control-Allow-Origin", "*")
-    w.Header().Set("Content-Type", "application/x-www-form-urlencoded")
-    w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
-    handler.GetAllComments(a.DB, w, r)
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Content-Type", "application/x-www-form-urlencoded")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+  handler.GetAllComments(a.DB, w, r)
 }
 
 // SearchServices searches for services by name
 func (a *App) SearchServiceByName(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Content-Type", "application/x-www-form-urlencoded")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 	handler.SearchServiceByName(a.DB, w, r)
+}
+
+//ForgotUsername
+func (a *App) ForgotUsername(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Content-Type", "application/x-www-form-urlencoded")
+	w.Header().Set("Access-Control-Allow-Methods", "POST")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+	handler.ForgotUsername(a.DB, w, r)
+}
+
+// Handler to initiate password reset process
+func (a *App) ForgotPassword(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Content-Type", "application/x-www-form-urlencoded")
+	w.Header().Set("Access-Control-Allow-Methods", "POST")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+	handler.ForgotPassword(a.DB, w, r)
+}
+
+//Upload
+func (a *App) CreateUploadedFile(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Content-Type", "application/x-www-form-urlencoded")
+	w.Header().Set("Access-Control-Allow-Methods", "POST")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+  handler.CreateUploadedFile(a.DB, w, r)
+}
+
+//AddComment
+func (a *App) AddComment(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Content-Type", "application/x-www-form-urlencoded")
+	w.Header().Set("Access-Control-Allow-Methods", "POST")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+  handler.AddComment(a.DB, w, r)
 }
 
 // Run the app on it's router

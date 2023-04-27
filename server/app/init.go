@@ -13,9 +13,10 @@ func (a *App) DBMigrate() {
 	a.DB.AutoMigrate().DropTable(&model.CityServiceMapping{})
 	a.DB.AutoMigrate().DropTable(&model.Blog{})
 	a.DB.AutoMigrate().DropTable(&model.Comment{})
+	a.DB.AutoMigrate(&model.UploadedFile{})
 
 	// Migrate the schema and create tables
-	a.DB.AutoMigrate(&model.User{}, &model.Service{}, &model.Booking{}, &model.CityServiceMapping{}, &model.Blog{}, &model.Comment{})
+	a.DB.AutoMigrate(&model.User{}, &model.Service{}, &model.Booking{}, &model.CityServiceMapping{}, &model.Blog{}, &model.Comment{}, &model.UploadedFile{})
 
 	// Create some dummy users
 	a.DB.Create(&model.User{
@@ -23,7 +24,7 @@ func (a *App) DBMigrate() {
 		Name:     "Dummy Duck",
 		Username: "dummy",
 		Password: "dumdum",
-		Email:    "dummy@ufl.edu",
+		Email:    "dummy@pace.edu",
 		Gender:   "M",
 	})
 	a.DB.Create(&model.User{
@@ -31,7 +32,7 @@ func (a *App) DBMigrate() {
 		Name:     "Buzz Lightyear",
 		Username: "buzz",
 		Password: "busybee",
-		Email:    "buzz@ufl.edu",
+		Email:    "buzz@pace.edu",
 		Gender:   "M",
 	})
 	a.DB.Create(&model.User{
@@ -39,7 +40,7 @@ func (a *App) DBMigrate() {
 		Name:     "Snow White",
 		Username: "snow",
 		Password: "abc1234",
-		Email:    "snow@ufl.edu",
+		Email:    "snow@pace.edu",
 		Gender:   "F",
 	})
 
@@ -155,7 +156,7 @@ func (a *App) DBMigrate() {
 	ImageName:   "refridgerator.jpg",
 	})
 
-	// Create some dummy Comments 
+	// Create some dummy Comments
 	a.DB.Create(&model.Comment{
     Id:        1,
     UserId:    1,
@@ -179,5 +180,14 @@ func (a *App) DBMigrate() {
     Content:   "I had a bad experience with an on-demand cleaning service, they didn't do a good job",
     CreatedAt: "2023-04-25 11:20",
     UpdatedAt: "2023-04-25 11:20",
+	})
+
+	// Create some dummy uploaded files
+	a.DB.Create(&model.UploadedFile{
+    Id:           1,
+    FileName:     "example.jpg",
+    FilePath:     "/uploads/example.jpg",
+    ContentType:  "image/jpeg",
+    Size:         1024,
 	})
 }

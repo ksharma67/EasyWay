@@ -10,6 +10,6 @@ create table ucc_users (
 );
 
 -- Inserting values into ucc_users table
-insert into ucc_users (name, email, gender, username, password) values (0, 'Dummy Duck', 'dummy', 'dumdum', 'dummy@ufl.edu', 'M');
-insert into ucc_users (name, email, gender, username, password) values (1, 'Buzz Lightyear', 'buzz', 'busybee', 'buzz@ufl.edu', 'M');
-insert into ucc_users (name, email, gender, username, password) values (2, 'Snow White', 'snow', 'abc1234', 'snow@ufl.edu', 'F');
+insert into ucc_users (name, email, gender, username, password) values (0, 'Dummy Duck', 'dummy', 'dumdum', 'dummy@pace.edu', 'M');
+insert into ucc_users (name, email, gender, username, password) values (1, 'Buzz Lightyear', 'buzz', 'busybee', 'buzz@pace.edu', 'M');
+insert into ucc_users (name, email, gender, username, password) values (2, 'Snow White', 'snow', 'abc1234', 'snow@pace.edu', 'F');
