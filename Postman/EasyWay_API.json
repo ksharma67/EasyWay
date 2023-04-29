@@ -91,6 +91,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": "http://localhost:3000/api/user/dummy"
 			},
 			"response": [
