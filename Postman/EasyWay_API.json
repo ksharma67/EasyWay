@@ -1,0 +1,761 @@
+{
+	"info": {
+		"_postman_id": "014cb12e-fe98-431f-b510-8a529a3f89b0",
+		"name": "EasywayAPIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add user",
+			"_postman_id": "dea69e57-c7fc-4ead-a447-cd0809d2f678",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"alex\",\n    \"email\": \"alex@ufl.edu\",\n    \"gender\": \"F\",\n    \"username\": \"alex\",\n    \"password\": \"alex1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/user"
+			},
+			"response": [
+				{
+					"id": "c9d518cf-7730-4d64-b016-bbba259007c4",
+					"name": "Add user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"alex\",\n    \"email\": \"alex@ufl.edu\",\n    \"gender\": \"F\",\n    \"username\": \"alex\",\n    \"password\": \"alex1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/user"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Accept",
+							"value": "application/x-www-form-urlencoded"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:4200"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Feb 2022 00:32:35 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "95"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"id\": 4,\n    \"name\": \"alex\",\n    \"username\": \"alex\",\n    \"password\": \"alex1\",\n    \"email\": \"alex@ufl.edu\",\n    \"gender\": \"F\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get user details",
+			"_postman_id": "69b2a066-143b-4281-b65e-8f409cfa3ce3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/api/user/dummy"
+			},
+			"response": [
+				{
+					"id": "082291d4-8258-43f8-9fa5-7a2a78c267f7",
+					"name": "Get user details",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/user/dummy"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:4200"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Feb 2022 00:33:36 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "104"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"id\": 1,\n    \"name\": \"Dummy Duck\",\n    \"username\": \"dummy\",\n    \"password\": \"dumdum\",\n    \"email\": \"dummy@ufl.edu\",\n    \"gender\": \"M\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all services",
+			"_postman_id": "e6cbc3d3-0901-4811-b621-031fe4031bbe",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/api/services"
+			},
+			"response": [
+				{
+					"id": "1ba0ee63-d307-4e29-8b23-6103b7c30609",
+					"name": "Get all services",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/services"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:4200"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Feb 2022 00:34:25 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "639"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"AC Maintanence\",\n        \"description\": \"Any type of AC maintanence such as filter cleaning, part replacement, etc.\",\n        \"username\": \"Electronics\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Plumbing\",\n        \"description\": \"Sanitary and household plumbing. No sewage service.\",\n        \"username\": \"Household\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Saloon\",\n        \"description\": \"Haricut, massage, nailwork, makeup, etc.\",\n        \"username\": \"Personal Care\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Furniture Repair\",\n        \"description\": \"Furniture frame repair, drilling, fitting new furniture, etc.\",\n        \"username\": \"Household\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Exterminator\",\n        \"description\": \"Pest control, wildlife evac, alligator emergency, etc.\",\n        \"username\": \"Animal/Pet\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get bookings from a given user",
+			"_postman_id": "ca70d5be-bb97-4b46-996c-0ba2f8321b34",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/api/bookings/3"
+			},
+			"response": [
+				{
+					"id": "39e1e239-ea87-4056-85d2-b73aeeee0bca",
+					"name": "Get bookings from a given user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/bookings/2"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:4200"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Feb 2022 00:36:10 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "135"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"id\": 2,\n    \"user_id\": 0,\n    \"service_id\": 3,\n    \"date\": \"2022-02-15T16:30:00Z\",\n    \"start_time\": \"2022-02-15T16:30:00Z\",\n    \"end_time\": \"2022-02-15T17:30:00Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Book a service",
+			"_postman_id": "295a5117-df17-4539-801b-bd0161b6cf40",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 5,\n    \"user_id\": 3,\n    \"service_id\": 4,\n    \"date\": \"2022-02-15\",\n    \"start_time\": \"12:30\",\n    \"end_time\": \"13:30\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/bookService"
+			},
+			"response": [
+				{
+					"id": "212db56a-d012-4ba0-921a-2620f4cc68a9",
+					"name": "Book a service",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 4,\n    \"user_id\": 1,\n    \"service_id\": 4,\n    \"date\": \"2022-02-15\",\n    \"start_time\": \"11:30\",\n    \"end_time\": \"13:30\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/bookService"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Accept",
+							"value": "application/x-www-form-urlencoded"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:4200"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Feb 2022 06:01:06 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "232"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"id\": 4,\n    \"user_id\": 1,\n    \"service_id\": 4,\n    \"date\": \"2022-02-15\",\n    \"start_time\": \"11:30\",\n    \"end_time\": \"13:30\",\n    \"User\": {\n        \"id\": 0,\n        \"name\": \"\",\n        \"username\": \"\",\n        \"password\": \"\",\n        \"email\": \"\",\n        \"gender\": \"\"\n    },\n    \"Service\": {\n        \"id\": 0,\n        \"name\": \"\",\n        \"description\": \"\",\n        \"username\": \"\"\n    }\n}"
+				},
+				{
+					"id": "4cfdad92-ae9b-465e-9f53-7c7475aa3386",
+					"name": "Book a service",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"user_id\": 1,\n    \"service_id\": 3,\n    \"date\": \"2022-02-15\",\n    \"start_date\": \"11:30\",\n    \"end_date\": \"13:30\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/bookService"
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Accept",
+							"value": "application/x-www-form-urlencoded"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:4200"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Feb 2022 05:02:08 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "65"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"error\": \"Error 1062: Duplicate entry '2' for key 'bookings.id'\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Forgot Password",
+			"_postman_id": "01a64fb5-1a5a-4188-bcd1-07c9bb69fd7e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"dummy@pace.edu\"\n}\n",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": "http://localhost:3000/api/forgotPassword"
+			},
+			"response": [
+				{
+					"id": "d386e68b-9982-4a55-a705-389546285d2f",
+					"name": "Forgot Password",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"dummy@pace.edu\"\n}\n",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "http://localhost:3000/api/forgotPassword"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:4200"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 28 Apr 2023 17:14:33 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "62"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"message\": \"A temporary password has been sent to your email\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Forgot Username",
+			"_postman_id": "ca4aa06b-881c-4b4f-a34d-6d2f30d94542",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"dummy@pace.edu\"     \n}\n",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": "http://localhost:3000/api/forgotUsername"
+			},
+			"response": [
+				{
+					"id": "d19ba913-5fb0-4fd7-93ee-4cb0cbd898ee",
+					"name": "Forgot Username",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"ksharma@pace.edu\"     \n}\n",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "http://localhost:3000/api/forgotUsername"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:4200"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 28 Apr 2023 17:14:38 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "62"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"message\": \"A temporary username has been sent to your email\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Blogs",
+			"_postman_id": "078c6dc9-5ea0-496b-b9dc-6d629ea092bd",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/api/getAllBlogs"
+			},
+			"response": [
+				{
+					"id": "5b00d7ab-94c3-4a99-8086-f3f92b41279e",
+					"name": "Get All Blogs",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/getAllBlogs"
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"responseTime": null,
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get All Comments of a Blog",
+			"_postman_id": "23f92c47-e473-40cc-9ce7-75ab46e4b7b9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": "http://localhost:3000/api/getAllComments/1"
+			},
+			"response": [
+				{
+					"id": "494af9e2-d3c7-4f5b-b6a1-e6059375a09e",
+					"name": "Get All Comments of a Blog",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "http://localhost:3000/api/getAllComments/0"
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"responseTime": null,
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Add Comment",
+			"_postman_id": "5907e7bf-257d-486e-8f19-9bdd9a01e468",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"blog_id\": 1,\n    \"content\": \"This is a new comment\"\n}\n",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": "http://localhost:3000/api/blogs/1/comments"
+			},
+			"response": [
+				{
+					"id": "e244f9bb-5fe5-4d61-afa3-81d03b249678",
+					"name": "Add Comment",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"blog_id\": 0,\n    \"content\": \"This is a new comment\"\n}\n",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "http://localhost:3000/api/blogs/1/comments"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 28 Apr 2023 03:26:20 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "124"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"id\": 5,\n    \"blog_id\": 1,\n    \"content\": \"This is a new comment\",\n    \"created_at\": \"2023-04-27 23:26:20\",\n    \"updated_at\": \"2023-04-27 23:26:20\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Search Services",
+			"_postman_id": "fe72e1be-feeb-407d-931c-36a243074abd",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"body\" : \"Plumber\"\n}   ",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/services/search?name=plum",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"services",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "plum"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "b7e7903e-52b2-44fc-9d32-fa4867007482",
+					"name": "Search Services",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"body\" : \"Plumber\"\n}   ",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/services/search?name=plum",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"services",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "plum"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"responseTime": null,
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Update Booking",
+			"_postman_id": "9df34c57-6028-46b1-86b4-d51861f98644",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"userId\": 1,\n    \"serviceId\": 1,\n    \"date\": \"2022-05-20\",\n    \"startTime\": \"14:00\",\n    \"endTime\": \"15:00\",\n    \"isCancelled\": false\n}\n",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/updateBooking?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"updateBooking"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
