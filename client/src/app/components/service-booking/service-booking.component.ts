@@ -10,6 +10,8 @@ import { GlobalConstants } from 'src/app/common/global-constants';
   styleUrls: ['./service-booking.component.css']
 })
 export class ServiceBookingComponent implements OnInit {
+  today: Date = new Date();
+  currentTime: Date = new Date();
 
   bookingForm = new FormGroup({
     date: new FormControl(''),
@@ -27,8 +29,8 @@ export class ServiceBookingComponent implements OnInit {
     console.log(this.bookingForm.value)
     if (this.bookingForm.value.date == '' || this.bookingForm.value.time == '') {
       alert ('Please select appropriate date and time.')
-    } else {
-      
+    }
+    else {
 
       var endTime: number = +this.bookingForm.value.time.split(':')[0] + 1
 
@@ -44,7 +46,7 @@ export class ServiceBookingComponent implements OnInit {
       const headers = {
         "Content-Type": "application/x-www-form-urlencoded"
       }
-  
+
       var post = this.http.post(GlobalConstants.apiURL+'bookService',inpObject,{headers});
       console.log(post);
 
@@ -70,13 +72,13 @@ export class ServiceBookingComponent implements OnInit {
    }
 
   highlight(event: any): void {
-    event.target.style['border-bottom'] = "1px solid rgba(30, 40, 51, 0.9)";      
-    event.target.style['opacity'] = "0.9";           
+    event.target.style['border-bottom'] = "1px solid rgba(30, 40, 51, 0.9)";
+    event.target.style['opacity'] = "0.9";
   }
 
   dampen(event: any): void {
-    event.target.style['border-bottom'] = "1px solid rgba(30, 40, 51, 0.6)";      
-    event.target.style['opacity'] = "0.6";           
+    event.target.style['border-bottom'] = "1px solid rgba(30, 40, 51, 0.6)";
+    event.target.style['opacity'] = "0.6";
   }
 
 }

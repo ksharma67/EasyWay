@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   currentRoute:string = '';
   searchResults: any[] = [];
   showDropdown: boolean = false;
+  isDropdownOpen = false;
 
   constructor(private http: HttpClient, public router: Router) { }
 
@@ -31,36 +32,31 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-
   searchServices(event: Event) {
-    const query = (event.target as HTMLInputElement)?.value;
-    if (query && query.length >= 3) {
-      const searchUrl = `http://localhost:3000/api/searchServiceByName?name=${query}`;
-      this.http.get(searchUrl).subscribe((data: any) => {
-        console.log(data);
-        const datalist = document.getElementById('search-results');
-        if (datalist) {
-          datalist.innerHTML = '';
-          data.forEach((item: any) => {
-            const option = document.createElement('option');
-            option.value = item.name;
-            option.setAttribute('data-id', item.id);
-            datalist.appendChild(option);
-          });
-        }
-        if (data.length > 0) {
-          this.showDropdown = true;
-        } else {
-          this.showDropdown = false;
-        }
-      });
-    } else {
-      this.showDropdown = false;
+    const query = encodeURIComponent((event.target as HTMLInputElement)?.value);
+      if (query && query.length >= 3) {
+        const searchUrl = `${GlobalConstants.apiURL}services/search?name=${query}`;
+        this.http.get(searchUrl).subscribe((data: any) => {
+          console.log(data);
+          this.searchResults = data;
+          if (this.searchResults.length > 0) {
+            this.showDropdown = true;
+          } else {
+            this.showDropdown = false;
+          }
+        });
+      } else {
+        this.showDropdown = false;
+      }
     }
+
+    selectService(serviceId: number) {
+      const serviceUrl = `${GlobalConstants.apiURL}getServiceInfo?serviceId=/${serviceId}`;
+      this.router.navigate([serviceUrl]);
+    }
+
+    toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
   }
-  selectService(item: any) {
-    this.showDropdown = false;
-    console.log('Selected service:', item);
-    // Do something with the selected service
-  }
+
 }

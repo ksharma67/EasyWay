@@ -12,29 +12,29 @@
                   <p class="mb-4 center-align booking-service-name"><strong>{{serviceName}}</strong></p>
                   <p class="mb-4 center-align booking-service-price"><strong>Price:</strong> ${{servicePrice}}</p>
               </div>
-  
+
               <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
-  
+
                 <p>Enter date for service</p>
                 <div class="form-group mb-4">
-                  <input type="date" formControlName="date" value="01/01/2022" (mouseover)="highlight($event)" (mouseout)="dampen($event)">
+                  <input type="date" formControlName="date" [value]="today | date:'yyyy-MM-dd'" (mouseover)="highlight($event)" (mouseout)="dampen($event)">
                 </div>
-  
+
                 <p>Enter time for service</p>
                 <div class="form-group mb-4">
-                  <input type="time" formControlName="time" value="22:00" (mouseover)="highlight($event)" (mouseout)="dampen($event)">
+                  <input type="time" formControlName="time" [value]="currentTime | date:'HH:mm'" (mouseover)="highlight($event)" (mouseout)="dampen($event)">
                 </div>
-  
+
                 <div class="center-align">
                   <input type="submit" value="Book" class="btn btn-block btn-primary">
                 </div>
               </form>
-  
+
             </div>
           </div>
-  
+
         </div>
-  
+
       </div>
     </div>
   </div>

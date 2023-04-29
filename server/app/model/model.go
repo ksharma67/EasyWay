@@ -14,6 +14,18 @@ type User struct {
 	Gender   string `gorm:"size:1; check:gender==M || gender==F" json:"gender"`
 }
 
+type EmailValidationResponse struct {
+    Valid bool `gorm:"not_null" json:"valid"`
+}
+
+type ForgotUsernameReqBody struct {
+		Email string `gorm:"size:50" json:"email"`
+	}
+
+type ForgotPasswordReqBody struct {
+			Email string `gorm:"size:50" json:"email"`
+		}
+
 //Service model for database table Service
 type Service struct {
 	Id          uint   `gorm:"size:10;primary_key;" json:"id"`
@@ -55,13 +67,16 @@ type Blog struct {
 //Comment model for database table Blog Commnets
 type Comment struct {
     Id        int    `gorm:"primary_key" json:"id"`
-    UserId    uint   `gorm:"not_null" json:"user_id"`
     BlogId    int    `gorm:"not_null" json:"blog_id"`
     Content   string `gorm:"size:500" json:"content"`
     CreatedAt string `gorm:"size:20" json:"created_at"`
     UpdatedAt string `gorm:"size:20" json:"updated_at"`
 }
 
+type CommentInput struct {
+    BlogId    int  	 `gorm:"not_null" json:"blog_id"`
+  	Content   string `gorm:"size:500" json:"content"`
+}
 
 // Search model for database ServiceResult
 type ServiceResult struct {
