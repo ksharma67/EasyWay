@@ -14,9 +14,22 @@
         <i class="fas fa-upload"></i> Select a file
       </label>
     </div>
-    <img class="preview" *ngIf="selectedFile" [src]="selectedFileUrl" />
+    <img class="preview" *ngIf="selectedFileUrl" [src]="selectedFileUrl" />
     <button type="submit">Upload</button>
-    <div *ngIf="uploadSuccess">Upload successful!</div>
+    <div *ngIf="uploadSuccess">
+      Upload successful!
+      <div *ngFor="let obj of uploadResponse.response">
+        <ul>
+          <li *ngFor="let detection of obj.detections">
+            Detected: {{ detection.class }}
+          </li>
+        </ul>
+      </div>
+      <button *ngIf="showDetectionImage" (click)="fetchDetectionImage()">Fetch Detection Image</button>
+      <div *ngIf="imageUrl">
+        <img class="preview" [src]="imageUrl" alt="Detection Image">
+      </div>
+    </div>
     <div *ngIf="errorMessage">{{ errorMessage }}</div>
   </form>
 </div>

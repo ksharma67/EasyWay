@@ -10,7 +10,7 @@
           </div>
           <ul class="dropdown-menu" [ngClass]="{'show': showDropdown}" style="background-color: grey;">
             <li *ngFor="let item of searchResults">
-              <a href="#" (click)="selectService(item.id)">{{item.name}}</a>
+              <a href="#" (click)="selectService($event, item.id, item.name)">{{item.name}}</a>
             </li>
           </ul>
         </form>

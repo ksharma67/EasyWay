@@ -85,9 +85,48 @@ type ServiceResult struct {
 }
 
 type UploadedFile struct {
-  Id          uint   `gorm:"primary_key" json:"id"`
-  ContentType string `gorm:"not null" json:"content_type"`
-  Size        int64  `gorm:"not null" json:"size"`
-  FileName    string `gorm:"not null" json:"file_name"`
-  FilePath    string `gorm:"not null" json:"file_path"`
+    ID          uint     `gorm:"primary_key" json:"id"`
+    ContentType string   `gorm:"not null" json:"content_type"`
+    Size        int64    `gorm:"not null" json:"size"`
+    FileName    string   `gorm:"not null" json:"file_name"`
+    FilePath    string   `gorm:"not null" json:"file_path"`
+}
+
+type RespondError struct {
+    Error string `gorm:"not null" json:"error"`
+}
+
+
+type DetectionResult struct {
+	Response []struct {
+		Detections []struct {
+			Class      string  `json:"class"`
+			Confidence float64 `json:"confidence"`
+		} `json:"detections"`
+		Image string `json:"image"`
+	} `json:"response"`
+}
+
+type Response struct {
+    Detections []Detection `json:"detections"`
+    Image      string      `json:"image"`
+}
+
+type Detection struct {
+    Class      string  `json:"class"`
+    Confidence float64 `json:"confidence"`
+}
+
+
+type Object struct {
+    Class string  `json:"class"`
+    Score float64 `json:"score"`
+    Box   Box     `json:"box"`
+}
+
+type Box struct {
+    X1 int `json:"x1"`
+    Y1 int `json:"y1"`
+    X2 int `json:"x2"`
+    Y2 int `json:"y2"`
 }

@@ -12,6 +12,10 @@ import { GlobalConstants } from 'src/app/common/global-constants';
 export class ServiceBookingComponent implements OnInit {
   today: Date = new Date();
   currentTime: Date = new Date();
+  timeOptions = [  '09:00',  '09:30',  '10:00',  '10:30',  '11:00',  '11:30',  '12:00',  '12:30',
+                   '13:00',  '13:30',  '14:00',  '14:30',  '15:00',  '15:30',  '16:00',  '16:30',
+                   '17:00',  '17:30',  '18:00',  '18:30',  '19:00',  '19:30',  '20:00',  '20:30',
+                   '21:00',  '21:30',  '22:00'];
 
   bookingForm = new FormGroup({
     date: new FormControl(''),
@@ -41,7 +45,6 @@ export class ServiceBookingComponent implements OnInit {
         'start_time': this.bookingForm.value.time,
         'end_time': endTime.toString() + ':' + this.bookingForm.value.time.split(':')[1]
       }
-      console.log(inpObject)
 
       const headers = {
         "Content-Type": "application/x-www-form-urlencoded"
@@ -70,6 +73,10 @@ export class ServiceBookingComponent implements OnInit {
     })
 
    }
+
+  onTimeSelect() {
+    console.log('Time selected');
+  }
 
   highlight(event: any): void {
     event.target.style['border-bottom'] = "1px solid rgba(30, 40, 51, 0.9)";

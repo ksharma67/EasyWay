@@ -50,10 +50,14 @@ export class NavbarComponent implements OnInit {
       }
     }
 
-    selectService(serviceId: number) {
-      const serviceUrl = `${GlobalConstants.apiURL}getServiceInfo?serviceId=/${serviceId}`;
-      this.router.navigate([serviceUrl]);
+    selectService(event: Event, serviceId: number, serviceName: string) {
+      event.preventDefault(); // prevent the default action of following the link
+      const serviceUrl = `/bookService?service_id=${serviceId}`;
+      const service_name = encodeURIComponent(serviceName); // encode the service name in case it contains special characters
+
+      this.router.navigate(['/bookService'], {queryParams: {service_id: serviceId, service_name: service_name}});
     }
+
 
     toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;

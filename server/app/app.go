@@ -68,6 +68,7 @@ func (a *App) setRouters() {
 	a.Post("/createUploadedFile", a.CreateUploadedFile)
 	a.Post("/blogs/{id}/comments", a.AddComment)
 	a.Put("/updateBooking", a.EditBooking)
+	a.Get("/detection", a.GetDetectionImage)
 }
 
 // Wrap the router for GET method
@@ -209,8 +210,6 @@ func (a *App) SearchServiceByName(w http.ResponseWriter, r *http.Request) {
     handler.SearchServiceByName(a.DB, w, r)
 }
 
-
-
 //ForgotUsername
 func (a *App) ForgotUsername(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "http://localhost:4200")
@@ -258,6 +257,15 @@ func (a *App) EditBooking(w http.ResponseWriter, r *http.Request) {
     handler.EditBooking(a.DB, w, r)
 }
 
+// Handlers to Get Detected Image
+func (a *App) GetDetectionImage(w http.ResponseWriter, r *http.Request) {
+    fmt.Println("Called Routes: /bookService Method:PUT")
+    w.Header().Set("Access-Control-Allow-Origin", "*")
+    w.Header().Set("Content-Type", "application/x-www-form-urlencoded")
+    w.Header().Set("Access-Control-Allow-Methods", "PUT")
+    w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+    handler.GetDetectionImage(w, r)
+}
 
 // Run the app on it's router
 func (a *App) Run(host string) {
