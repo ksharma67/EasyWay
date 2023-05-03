@@ -16,6 +16,13 @@ export class UploadComponent {
   uploadResponse: any;
   imageUrl: SafeUrl | undefined;
   showDetectionImage: boolean = false;
+  // Define the lists of furniture types and plumbing types
+  furnitureTypes = ['bench', 'chair', 'couch', 'bed', 'dining table'];
+  plumbingTypes = ['sink', 'toilet'];
+  // Define the service information for furniture repair and plumbing
+  furnitureService = { service_id: 4, service_name: 'Furniture Repair', service_price: 70 };
+  plumbingService = { service_id: 2, service_name: 'Plumbing', service_price: 100 };
+
 
   constructor(private http: HttpClient, private sanitizer: DomSanitizer) {}
 

@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "014cb12e-fe98-431f-b510-8a529a3f89b0",
 		"name": "EasyWay API Documentation",
-		"description": "The **EasyWay's** API is a JSON-based API. All requests are made to endpoints beginning with: '[http://localhost:3000/api'](http://localhost:3000/api').  \nRequests can be made with HTTP.",
+		"description": "The **EasyWay's** API is a JSON-based API. All requests are made to endpoints beginning with: `http://localhost:3000/api` and `http://localhost:5000/`  \nRequests can be made with HTTP.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "23815648",
 		"_collection_link": "https://easywayapis.postman.co/workspace/8691dc6b-dbf2-45ad-8fd6-25229db4786f/collection/23815648-014cb12e-fe98-431f-b510-8a529a3f89b0?action=share&creator=23815648&source=collection_link"
@@ -1011,6 +1011,124 @@
 			]
 		},
 		{
+			"name": "GET Detections",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/detection?folderName=detections",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"detection"
+					],
+					"query": [
+						{
+							"key": "folderName",
+							"value": "detections"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Detections",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "images",
+							"type": "file",
+							"src": "vhA4Rnc7E/dog.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3600/detections",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3600",
+					"path": [
+						"detections"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Detections",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "images",
+									"type": "file",
+									"src": "vhA4Rnc7E/dog.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3600/detections",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3600",
+							"path": [
+								"detections"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.3.2 Python/3.10.3"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 01 May 2023 04:31:17 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "328"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response\": [\n        {\n            \"detections\": [\n                {\n                    \"class\": \"dog\",\n                    \"confidence\": 99.77\n                },\n                {\n                    \"class\": \"bicycle\",\n                    \"confidence\": 99.02\n                },\n                {\n                    \"class\": \"truck\",\n                    \"confidence\": 93.78\n                }\n            ],\n            \"image\": \"dog.jpg\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
 			"name": "Update Booking",
 			"request": {
 				"method": "PUT",
@@ -1020,12 +1138,12 @@
 					"raw": "{\n    \"id\": 1,\n    \"userId\": 1,\n    \"serviceId\": 1,\n    \"date\": \"2022-05-20\",\n    \"startTime\": \"14:00\",\n    \"endTime\": \"15:00\",\n    \"isCancelled\": false\n}\n"
 				},
 				"url": {
-					"raw": "http://localhost:8080/updateBooking?id=1",
+					"raw": "http://localhost:3000/updateBooking?id=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "3000",
 					"path": [
 						"updateBooking"
 					],

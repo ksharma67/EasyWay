@@ -131,6 +131,41 @@ go run main.go
 ```
 Ignore any errors as it will check for required datatables (show the error), then automatically creates the datatables.
 
+## Running Backend Server Algorithm Server:
+
+* Clone the repository
+```
+git clone https://github.com/ksharma67/EasyWay.git
+```
+* Install Python from https://www.python.org/downloads/
+* Install Pip from https://pip.pypa.io/en/stable/installation/
+* Navigate to server folder and run go server:
+```
+cd ./server/
+```
+* Install the required libraries
+```
+# TensorFlow CPU
+pip install -r requirements.txt
+
+# TensorFlow GPU
+pip install -r requirements-gpu.txt
+```
+* For Linux: Let's download official yolov3 weights pretrained on COCO dataset.
+```
+# Downloading yolov3 weights
+wget https://pjreddie.com/media/files/yolov3.weights -O weights/yolov3.weights
+```
+* Load the weights using `load_weights.py` script. This will convert the yolov3 weights into TensorFlow .ckpt model files!
+```
+# Loading yolov3 weights
+python load_weights.py
+```
+* Starting the Flask Server
+```
+python app.py
+```
+
 ## Running Frontend Server:
 
 Link : https://easywayapp.netlify.app
