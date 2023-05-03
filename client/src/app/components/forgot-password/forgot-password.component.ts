@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router'
 import { GlobalConstants } from '../../common/global-constants';
@@ -11,8 +11,8 @@ import { AppComponent } from 'src/app/app.component';
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
-  forgotPasswordForm = new FormGroup({
-    email: new FormControl('', [Validators.required, emailValidator])
+  forgotPasswordForm = new UntypedFormGroup({
+    email: new UntypedFormControl('', [Validators.required, emailValidator])
   });
 
   constructor(private http: HttpClient) { }

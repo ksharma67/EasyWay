@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router'
 import { GlobalConstants } from '../../common/global-constants';
@@ -11,8 +11,8 @@ import { AppComponent } from 'src/app/app.component';
   styleUrls: ['./forgot-username.component.css']
 })
 export class ForgotUsernameComponent implements OnInit {
-  forgotUsernameForm = new FormGroup({
-    email1: new FormControl('', [Validators.required, emailValidator])
+  forgotUsernameForm = new UntypedFormGroup({
+    email1: new UntypedFormControl('', [Validators.required, emailValidator])
   });
 
   constructor(private http: HttpClient) { }
