@@ -770,28 +770,82 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": 1,\n    \"userId\": 1,\n    \"serviceId\": 1,\n    \"date\": \"2022-05-20\",\n    \"startTime\": \"14:00\",\n    \"endTime\": \"15:00\",\n    \"isCancelled\": false\n}\n"
+							"raw": "{\n    \"id\": 1,\n    \"user_id\": 1,\n    \"service_id\": 1,\n    \"date\": \"2023-06-15\",\n    \"start_time\": \"12:00\",\n    \"end_time\": \"13:00\",\n    \"note\": \"Updated booking note\"\n}\n"
 						},
 						"url": {
-							"raw": "http://localhost:3000/updateBooking?id=1",
+							"raw": "http://localhost:3000/api/updateBooking",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
+								"api",
 								"updateBooking"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "1"
-								}
 							]
 						},
 						"description": "This API is a PUT endpoint that updates an existing booking based on its ID. The endpoint is located at [http://localhost:3000/updateBooking](http://localhost:3000/updateBooking) and expects a query parameter \"id\" that represents the ID of the booking to be updated.\n\nThe request body contains a JSON object that represents the updated booking details. The example shows an updated booking with an ID of 1, userId of 1, serviceId of 1, and a new date, start time, and end time for the booking. Additionally, there is a boolean flag \"isCancelled\" to indicate if the booking has been cancelled.\n\nThe API will update the booking details based on the ID provided in the query parameter and the new booking details provided in the request body. The response of the API will indicate the success or failure of the update operation.\n\nThis API is useful in various applications that require updating existing bookings, such as booking systems for hotels, restaurants, or other service-based businesses."
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update Booking",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Id\": 1,\n    \"UserId\": 1,\n    \"ServiceId\": 1,\n    \"Date\": \"2023-06-15\",\n    \"StartTime\": \"12:00\",\n    \"EndTime\": \"13:00\",\n    \"Note\": \"Updated booking note\"\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/updateBooking",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"updateBooking"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "PUT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:4200"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 06 May 2023 05:05:04 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "136"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"user_id\": 1,\n    \"service_id\": 0,\n    \"date\": \"2023-06-15\",\n    \"start_time\": \"\",\n    \"end_time\": \"\",\n    \"is_cancelled\": false,\n    \"note\": \"Updated booking note\"\n}"
+						}
+					]
 				}
 			],
 			"description": "The Booking contains the API documentation for a web application. It includes descriptions of the available endpoints, their inputs and outputs, and any relevant information about authentication, errors, and usage guidelines.\n\nWithin this, there are several endpoint descriptions for booking-related actions.\n\nThe \"**GET** Get Bookings from a given user\" endpoint retrieves a list of all bookings made by a specific user, based on their unique identifier.\n\nThe \"**POST** Book a Service\" endpoint allows users to create a new booking for a particular service, providing the necessary details and parameters.\n\nThe \"**PUT** Update Booking\" endpoint allows users to update an existing booking, based on its unique identifier. This may include changes to the date, time, or service details.\n\nEach endpoint should have its own separate documentation file, outlining the specific parameters, responses, and any additional information required for usage. The documentation should also include any relevant examples or code snippets to assist developers in using the API."
