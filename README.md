@@ -91,7 +91,7 @@ Our application is structured as follows:
 
 ## Technology Stack:
 * Framework : Angular
-* Backend : GoLang
+* Backend : GoLang, Flask
 * Database : MySQL (GORM Library)
 * Version Control: Git
 * Code Editor : Visual Studio Code
@@ -102,7 +102,7 @@ Link : https://github.com/users/ksharma67/projects/2
 
 ## API Documentation:
 
-Link : https://github.com/ksharma67/EasyWay/blob/main/API%20Documentation.md
+Link : https://documenter.getpostman.com/view/23815648/2s93eSZant
 
 ## Running Backend Server:
 
@@ -131,7 +131,7 @@ go run main.go
 ```
 Ignore any errors as it will check for required datatables (show the error), then automatically creates the datatables.
 
-## Running Backend Server Algorithm Server:
+## Running Backend Server - Object Detection Server:
 
 * Clone the repository
 ```
