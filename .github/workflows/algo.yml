@@ -18,7 +18,6 @@ jobs:
       run: |
         cd server
         pip install -r requirements.txt
-        python load_weights.py
     - name: Run the app
       run: |
         cd server
